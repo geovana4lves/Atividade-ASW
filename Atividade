@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POO com HTML, CSS e JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        } 
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .classe {
+            border: 2px solid #333;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        .heranca {
+            border-top: 5px solid #007BFF;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 14px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Fundamentos da Orientação a Objetos</h1>
+
+    <div class="container">
+
+        <div class="classe heranca">
+            <h2>Cachorro</h2>
+            <p><strong>Herda de:</strong> Animal</p>
+            <button onclick="mostrarSom(Cachorro1)">Fazer Som</button>
+            <button onclick="mostrarMovimento(Cachorro1)">Mover</button>
+        </div>
+
+        <div class="classe heranca">
+            <h2>Cachorro</h2>
+            <p><strong>Herda de:</strong> Animal</p>
+            <button onclick="mostrarSom(Cachorro2)">Fazer Som</button>
+            <button onclick="mostrarMovimento(Cachorro2)">Mover</button>
+        </div>
+
+        <div class="classe heranca">
+            <h2>Cachorro</h2>
+            <p><strong>Herda de:</strong> Animal</p>
+            <button onclick="mostrarSom(Cachorro3)">Fazer Som</button>
+            <button onclick="mostrarMovimento(Cachorro3)">Mover</button>
+        </div>
+
+        <div class="classe heranca">
+            <h2>Gato</h2>
+            <p><strong>Herda de:</strong> Animal</p>
+            <button onclick="mostrarSom(gato)">Fazer Som</button>
+            <button onclick="mostrarMovimento(gato)">Mover</button>
+        </div>
+
+        <div class="classe heranca">
+            <h2>Pássaro</h2>
+            <p><strong>Herda de:</strong> Animal</p>
+            <button onclick="mostrarSom(passaro)">Fazer Som</button>
+            <button onclick="mostrarMovimento(passaro)">Mover</button>
+        </div>
+
+    </div>
+
+    <h2>Resultado:</h2>
+    <p id="resultado" style="font-size: 18px; font-weight: bold;"></p>
+
+    <script>
+        class Animal {
+            constructor(nome) {
+                this.nome = nome;
+            }
+
+            fazerSom() {
+                return O animal ${this.nome} faz um som!;
+            }
+
+            mover() {
+                return O animal ${this.nome} está se movendo!;
+            }
+        }
+
+        class Cachorro extends Animal {
+            fazerSom() {
+                return O cachorro ${this.nome} late: Au Au!;
+            }
+
+            mover() {
+                return O cachorro ${this.nome} está correndo!;
+            }
+        }
+
+        class Gato extends Animal {
+            fazerSom() {
+                return O gato ${this.nome} mia: Miau!;
+            }
+
+            mover() {
+                return O gato ${this.nome} está saltando!;
+            }
+        }
+
+        class Passaro extends Animal {
+            fazerSom() {
+                return O pássaro ${this.nome} canta: Piu Piu!;
+            }
+
+            mover() {
+                return O pássaro ${this.nome} está voando!;
+            }
+        }
+
+        let Cachorro1 = new Cachorro("Rex");
+        let Cachorro2 = new Cachorro("Scooby");
+        let Cachorro3 = new Cachorro("Max");
+        let gato = new Gato("Whiskers");
+        let passaro = new Passaro("Azulão");
+
+        function mostrarSom(animal) {
+            document.getElementById("resultado").innerText = animal.fazerSom();
+        }
+
+        function mostrarMovimento(animal) {
+            document.getElementById("resultado").innerText = animal.mover();
+        }
+    </script>
+
+</body>
+</html>
